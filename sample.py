@@ -20,8 +20,8 @@ async def main():
     async with aiohttp.ClientSession() as session:
         html = await fetch(session, 'http://python.org')
         logging.info(f"{len(html)=}")
-        logging.info(html["error"]) # new error
 
 if __name__ == "__main__":
     logging.info("starting")
     asyncio.run(main())
+    return list()[0]
