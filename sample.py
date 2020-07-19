@@ -14,6 +14,7 @@ integrations=[AioHttpIntegration()])
 
 async def fetch(session, url):
     async with session.get(url) as response:
+        a = 1 / 0
         return await response.text()
 
 async def main():
