@@ -9,8 +9,8 @@ from sentry_sdk.integrations.aiohttp import AioHttpIntegration
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.DEBUG)
 
-sentry_sdk.init(os.environ["SENTRY_DSN"],
-integrations=[AioHttpIntegration()])
+# sentry_sdk.init(os.environ["SENTRY_DSN"],
+# integrations=[AioHttpIntegration()])
 
 async def fetch(session, url):
     async with session.get(url) as response:
@@ -20,7 +20,7 @@ async def main():
     async with aiohttp.ClientSession() as session:
         html = await fetch(session, 'http://python.org')
         logging.info(f"{len(html)=}")
-        html[0][0] # new error
+        logging.info(html["error"]) # new error
 
 if __name__ == "__main__":
     logging.info("starting")
