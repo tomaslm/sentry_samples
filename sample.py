@@ -18,8 +18,9 @@ async def fetch(session, url):
 
 async def main():
     async with aiohttp.ClientSession() as session:
-        html = await fetch(session, 'http://pytho_n.org')
+        html = await fetch(session, 'http://python.org')
         logging.info(f"{len(html)=}")
+        html[0][0] # new error
 
 if __name__ == "__main__":
     logging.info("starting")
